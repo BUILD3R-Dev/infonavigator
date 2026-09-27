@@ -1,0 +1,26 @@
+---
+import type { Product } from '../data/products';
+import MetaScoreBadge from './MetaScoreBadge.astro';
+import CTA from './CTA.astro';
+import { priceLine, reviewUrl } from '../lib/format';
+
+interface Props { product: Product; rank?: number }
+const { product, rank } = Astro.props;
+---
+
+<article class="card product-card">
+  <div class="pc-head">
+    {rank !== undefined && <span class="rank">#{rank}</span>}
+    <div>
+      <h3><a href={reviewUrl(product)}>{product.name}</a></h3>
+      <p class="card-tagline">{product.tagline}</p>
+    </div>
+  </div>
+  <MetaScoreBadge product={product} />
+  <p class="pc-price"><strong>{priceLine(product)}</strong></p>
+  <p class="pc-bestfor">{product.bestFor.join(' · ')}</p>
+  <div class="pc-actions">
+    <CTA product={product} />
+    <a class="btn btn-ghost" href={reviewUrl(product)}>Full review</a>
+  </div>
+</article>

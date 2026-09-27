@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import ProductCard from '../../../components/ProductCard.astro';
+import DisclosureBlock from '../../../components/DisclosureBlock.astro';
+import LastVerified from '../../../components/LastVerified.astro';
+import { printerBySlug } from '../../../data/printers';
+import { money } from '../../../lib/format';
+
+const picks = ['elegoo-centauri-carbon', 'anycubic-kobra-3', 'elegoo-centauri-carbon-2', 'bambu-lab-a1-combo'].map((s) => printerBySlug(s));
+---
+
+<BaseLayout title="Best Budget 3D Printer (2026): Maximum Printer Per Dollar" description="The best cheap 3D printers that are actually good: ranked by data, with honest notes on what budget machines compromise.">
+  <div class="wrap">
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: '3D Printers', href: '/3d-printers/' }, { label: 'Budget' }]} />
+    <h1>Best Budget 3D Printer (2026)</h1>
+    <p class="lede">Budget does not have to mean bad anymore. These are the printers under $400 that reviewers and owners actually recommend — with the compromises spelled out honestly.</p>
+    <LastVerified />
+
+    {picks.map((p, i) => (
+      <section>
+        <h2>#{i + 1}: {p.name} — {money(p.price)}</h2>
+        <ProductCard product={p} />
+      </section>
+    ))}
+
+    <section>
+      <h2>What budget printers compromise</h2>
+      <ul class="checklist">
+        <li><strong>Multicolor</strong> — usually absent or an add-on. The Carbon 2 Combo is the exception.</li>
+        <li><strong>Enclosure</strong> — the cheapest picks are open-frame; only the Centauri Carbon line is enclosed under $400.</li>
+        <li><strong>Polish</strong> — cheaper machines need more babysitting. The A1 Combo at $400 is the line where "just works" starts.</li>
+        <li><strong>Support</strong> — budget brands\u2019 support is slower. Buy from retailers with real return policies.</li>
+      </ul>
+      <p><strong>The honest rule:</strong> at $299–$349 you are trading your time for money. If that trade sounds bad, the A1 Combo at $400 is worth the stretch.</p>
+    </section>
+
+    <DisclosureBlock />
+  </div>
+</BaseLayout>

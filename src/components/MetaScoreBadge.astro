@@ -1,0 +1,16 @@
+---
+import type { Product } from '../data/products';
+
+interface Props { product: Product; showSources?: boolean }
+const { product, showSources = true } = Astro.props;
+const pct = Math.round((product.metaScore / 10) * 100);
+const band = product.metaScore >= 8 ? 'ms-high' : product.metaScore >= 6 ? 'ms-mid' : 'ms-low';
+---
+
+<span class="metascore" title={`MetaScore ${product.metaScore}/10 from ${product.metaScoreSources} public sources`}>
+  <span class="num">{product.metaScore.toFixed(1)}</span>
+  <span class="bar" aria-hidden="true"><span class={`fill ${band}`} style={`width:${pct}%`}></span></span>
+  <span class="ms-label">MetaScore</span>
+  {showSources && <span class="ms-sources">· {product.metaScoreSources} {product.metaScoreSources === 1 ? 'source' : 'sources'}</span>}
+  {product.provisionalScore && <span class="provisional">provisional</span>}
+</span>

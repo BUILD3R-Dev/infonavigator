@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+---
+
+<BaseLayout title="Affiliate Disclosure — How InfoNavigator Makes Money" description="InfoNavigator is reader-supported: we may earn a commission when you buy through our links. Commissions never influence rankings.">
+  <div class="wrap">
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Disclosure' }]} />
+    <h1>How we make money</h1>
+    <p class="lede">InfoNavigator is reader-supported. Here is the whole business model, in plain language.</p>
+
+    <h2>Affiliate commissions</h2>
+    <p>When you click a product link on this site and make a purchase, the retailer may pay us a commission — typically a small percentage of the sale. This costs you nothing extra; the price you pay is the same.</p>
+
+    <h2>What commissions do not do</h2>
+    <ul>
+      <li><strong>They do not change rankings.</strong> MetaScores are computed from public ratings data. No brand can pay for a higher score or a better rank.</li>
+      <li><strong>They do not change reviews.</strong> Pros and cons are written from real owner feedback, including the complaints.</li>
+      <li><strong>They do not buy silence.</strong> If a product is bad value, we say so — even if it pays a commission.</li>
+    </ul>
+
+    <h2>What we do not do</h2>
+    <ul>
+      <li>We do not sell placement, rankings, or reviews.</li>
+      <li>We do not accept payment for "featured" spots that masquerade as rankings. Any paid placement is labeled as advertising.</li>
+      <li>We do not sell your data. There is no account system and nothing to sell.</li>
+    </ul>
+
+    <h2>Why this model</h2>
+    <p>Reader-supported affiliate revenue lets us stay independent: no advertisers to please, no paywalled "premium" picks. If you would rather not use our links, the rankings and all the data are free regardless — search the product name yourself and buy wherever you like.</p>
+
+    <p class="muted">Last updated: September 2026.</p>
+  </div>
+</BaseLayout>

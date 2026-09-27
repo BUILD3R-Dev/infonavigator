@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import DisclosureBlock from '../../components/DisclosureBlock.astro';
+import LastVerified from '../../components/LastVerified.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'How We Rate Products at InfoNavigator',
+  author: { '@type': 'Organization', name: 'InfoNavigator' },
+};
+---
+
+<BaseLayout title="How We Rate Products — InfoNavigator Methodology" description="How InfoNavigator computes MetaScores: public ratings data, normalized and weighted, re-verified monthly. Rankings are never for sale." schema={schema}>
+  <div class="wrap">
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'How we rate' }]} />
+    <h1>How we rate products</h1>
+    <p class="lede">Every product on InfoNavigator gets a <strong>MetaScore</strong> — a 0–10 score computed from public ratings data. Here is exactly how it works.</p>
+
+    <h2>The MetaScore</h2>
+    <ol class="steps">
+      <li><strong>Collect public ratings.</strong> We pull star ratings and review counts from major retailers, review platforms, and enthusiast communities for each product.</li>
+      <li><strong>Normalize.</strong> Ratings are normalized to a 0–10 scale and weighted by review volume — 10,000 reviews count more than 100.</li>
+      <li><strong>Adjust for recency.</strong> Recent reviews carry more weight than old ones, so a product resting on 2022 glory cannot coast.</li>
+      <li><strong>Publish the sources.</strong> Every MetaScore badge shows how many public sources went into it. A score from 12 sources means more than one from 3.</li>
+    </ol>
+
+    <h2>What the score does not include</h2>
+    <ul>
+      <li><strong>No sponsored inputs.</strong> Brands cannot pay to be scored, and affiliate relationships never touch the math.</li>
+      <li><strong>No hands-on score inflation.</strong> We do not pretend to have tested products we have not — the score is honest about being ratings-driven.</li>
+      <li><strong>No black box.</strong> If the methodology changes, we say so here and re-score.</li>
+    </ul>
+
+    <h2>Provisional scores</h2>
+    <p>A score marked <em>provisional</em> means the product is new enough that public ratings are still thin. We publish it anyway — with the warning — because buyers of new flagships need guidance too. Provisional scores are re-computed as reviews accumulate.</p>
+
+    <h2>Verification cadence</h2>
+    <p>Prices, specs, and ratings are re-verified at least monthly. When a new flagship launches or a price moves materially, the affected vertical is re-scored within days.</p>
+
+    <LastVerified />
+    <DisclosureBlock />
+  </div>
+</BaseLayout>

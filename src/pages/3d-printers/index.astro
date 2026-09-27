@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import CompareTable from '../../components/CompareTable.astro';
+import DisclosureBlock from '../../components/DisclosureBlock.astro';
+import LastVerified from '../../components/LastVerified.astro';
+import FAQ, { type FaqItem } from '../../components/FAQ.astro';
+import { rankedPrinters } from '../../data/printers';
+import { VERTICALS } from '../../data/site';
+
+const vertical = VERTICALS.find((v) => v.slug === '3d-printers')!;
+
+const faqs: FaqItem[] = [
+  {
+    q: 'What is the best 3D printer for beginners in 2026?',
+    a: 'For most beginners, an auto-calibrating printer with a guided setup wins — the Bambu Lab A1 Combo is our top beginner pick. Our reviews flag which printers need tinkering and which just work.',
+  },
+  {
+    q: 'How much should I spend on a 3D printer?',
+    a: 'Good printers start around $300. The $400–$600 range is the sweet spot for reliability and features. Above $800 you are paying for build volume, multicolor systems, or brand ecosystems.',
+  },
+  {
+    q: 'Do I need a multicolor printer?',
+    a: 'Only if you will actually print multicolor models. Single-color printers are cheaper, simpler, and more reliable — and toolchanger designs like the Snapmaker U1 are the only ones that avoid purge waste.',
+  },
+  {
+    q: 'Are enclosed printers safer?',
+    a: 'Enclosures help with ABS/ASA fumes and temperature stability, and keep hands away from hot parts. For PLA-only printing in a ventilated room, an open printer is fine.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Best 3D Printers 2026 — Ranked by Data',
+  itemListElement: rankedPrinters.map((p, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: p.name,
+  })),
+};
+---
+
+<BaseLayout title={vertical.title} description={vertical.description} schema={schema}>
+  <div class="wrap">
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: '3D Printers' }]} />
+    <h1>Best 3D Printer (2026): Ranked by Data</h1>
+    <p class="lede">{vertical.intro}</p>
+    <LastVerified />
+
+    <section>
+      <h2>The ranking</h2>
+      {rankedPrinters.map((p, i) => <ProductCard product={p} rank={i + 1} />)}
+    </section>
+
+    <section>
+      <h2>Side-by-side specs</h2>
+      <CompareTable products={rankedPrinters} caption="All 8 ranked 3D printers, compared" />
+    </section>
+
+    <section>
+      <h2>Popular comparisons</h2>
+      <ul class="linklist">
+        <li><a href="/3d-printers/bambu-lab-p2s-vs-creality-k2-pro/">Bambu Lab P2S vs Creality K2 Pro — flagship showdown</a></li>
+        <li><a href="/3d-printers/bambu-lab-p2s-vs-bambu-lab-a1-combo/">Bambu Lab P2S vs A1 Combo — is the flagship worth it?</a></li>
+        <li><a href="/3d-printers/creality-k2-pro-vs-elegoo-centauri-carbon-2/">Creality K2 Pro vs Elegoo Centauri Carbon 2</a></li>
+        <li><a href="/3d-printers/anycubic-kobra-3-vs-elegoo-centauri-carbon-2/">Anycubic Kobra 3 vs Elegoo Centauri Carbon 2 — budget duel</a></li>
+        <li><a href="/3d-printers/prusa-mk4s-vs-bambu-lab-p2s/">Prusa MK4S vs Bambu Lab P2S — open vs closed</a></li>
+        <li><a href="/3d-printers/snapmaker-u1-vs-bambu-lab-p2s/">Snapmaker U1 vs Bambu Lab P2S — toolchanger vs all-rounder</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Buying by use case</h2>
+      <ul class="linklist">
+        <li><a href="/3d-printers/best-3d-printer-for-beginners/">Best 3D printer for beginners</a></li>
+        <li><a href="/3d-printers/best-budget-3d-printer/">Best budget 3D printer</a></li>
+        <li><a href="/3d-printers/best-multicolor-3d-printer/">Best multicolor 3D printer</a></li>
+      </ul>
+    </section>
+
+    <FAQ items={faqs} />
+    <DisclosureBlock />
+  </div>
+</BaseLayout>

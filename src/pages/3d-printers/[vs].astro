@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CompareTable from '../../components/CompareTable.astro';
+import VerdictBox from '../../components/VerdictBox.astro';
+import CTA from '../../components/CTA.astro';
+import DisclosureBlock from '../../components/DisclosureBlock.astro';
+import LastVerified from '../../components/LastVerified.astro';
+import { VS_PAIRS, printerBySlug } from '../../data/printers';
+import { reviewUrl } from '../../lib/format';
+
+export async function getStaticPaths() {
+  return VS_PAIRS.map((pair) => ({
+    params: { vs: `${pair.a}-vs-${pair.b}` },
+    props: { pair },
+  }));
+}
+
+const { pair } = Astro.props;
+const a = printerBySlug(pair.a);
+const b = printerBySlug(pair.b);
+---
+
+<BaseLayout
+  title={`${pair.title} (2026): Which Should You Buy?`}
+  description={`${pair.title} compared head-to-head: MetaScores, specs, pros, cons, and our verdict. ${pair.angle}`}
+>
+  <div class="wrap">
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: '3D Printers', href: '/3d-printers/' }, { label: pair.title }]} />
+    <h1>{pair.title} (2026)</h1>
+    <p class="lede">{pair.angle}</p>
+    <LastVerified />
+
+    <CompareTable products={[a, b]} caption={`${a.name} vs ${b.name}`} />
+
+    <div class="vs-ctas">
+      <div class="card">
+        <h3>{a.name} — MetaScore {a.metaScore.toFixed(1)}</h3>
+        <p class="card-tagline">{a.tagline}</p>
+        <CTA product={a} /> <a class="btn btn-ghost" href={reviewUrl(a)}>Full review</a>
+      </div>
+      <div class="card">
+        <h3>{b.name} — MetaScore {b.metaScore.toFixed(1)}</h3>
+        <p class="card-tagline">{b.tagline}</p>
+        <CTA product={b} /> <a class="btn btn-ghost" href={reviewUrl(b)}>Full review</a>
+      </div>
+    </div>
+
+    <VerdictBox title="Our verdict">{pair.verdict}</VerdictBox>
+
+    <section>
+      <h2>Key differences</h2>
+      <ul class="checklist">
+        <li><strong>{a.name} strengths:</strong> {a.pros.slice(0, 3).join('; ')}.</li>
+        <li><strong>{b.name} strengths:</strong> {b.pros.slice(0, 3).join('; ')}.</li>
+        <li><strong>{a.name} weaknesses:</strong> {a.cons.slice(0, 2).join('; ')}.</li>
+        <li><strong>{b.name} weaknesses:</strong> {b.cons.slice(0, 2).join('; ')}.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>More comparisons</h2>
+      <ul class="linklist">
+        <li><a href={reviewUrl(a)}>{a.name} — full review</a></li>
+        <li><a href={reviewUrl(b)}>{b.name} — full review</a></li>
+        <li><a href="/3d-printers/">Back to the full 3D printer ranking</a></li>
+      </ul>
+    </section>
+
+    <DisclosureBlock />
+  </div>
+</BaseLayout>

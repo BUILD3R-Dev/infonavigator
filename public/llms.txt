@@ -1,0 +1,57 @@
+# BestPianoApp
+
+> The independent, data-driven guide to piano learning apps. We synthesize 1,000+ public reviews (App Store, Google Play, Reddit, YouTube, expert sites) into one 0-10 MetaScore per app. Prices re-verified monthly. No sponsored rankings — no app can pay for a higher score.
+
+## Start here
+- [The 7 Best Piano Apps in 2026, Ranked by Data](https://bestpianoapp.com/best-piano-apps/): Full ranking with comparison table, pricing, and trial terms.
+- [Find your piano app in 60 seconds](https://bestpianoapp.com/quiz/): 5-question quiz that recommends the right app.
+- [How We Rate: The MetaScore Method](https://bestpianoapp.com/how-we-rate/): Data sources, weights, update cadence, and limitations.
+- [Current deals and free trials](https://bestpianoapp.com/deals/): Active discounts and trial offers, refreshed monthly.
+
+## App reviews
+- [Simply Piano Review](https://bestpianoapp.com/simply-piano-review/): MetaScore 8.6. Course-style lessons, mic/MIDI input, ~$120-170/yr.
+- [Flowkey Review](https://bestpianoapp.com/flowkey-review/): MetaScore 8.9. Song-first learning, 1,500+ songs, mic or MIDI, $120/yr.
+- [Skoove Review](https://bestpianoapp.com/skoove-review/): Real piano lessons with AI feedback, ~$150/yr.
+- [Pianote Review](https://bestpianoapp.com/pianote-review/): Video lessons + community, premium tier ~$200-250/yr.
+- [Playground Sessions Review](https://bestpianoapp.com/playground-sessions-review/): MIDI-focused with lifetime $290 option.
+- [Piano Marvel Review](https://bestpianoapp.com/piano-marvel-review/): MIDI-focused, cheapest full-featured at ~$110-130/yr.
+- [Yousician Review](https://bestpianoapp.com/yousician-review/): Multi-instrument, gamified, ~$120-180/yr.
+- [Piano Tree Review](https://bestpianoapp.com/piano-tree-review/): Teaches music fundamentals, not just songs.
+- [Piano Player Review](https://bestpianoapp.com/piano-player-review/): 3D real-hands view with motion-captured performances. $11.99/mo or $120/yr, 7-day trial. Featured launch partner; score provisional (7.5) pending broader public ratings.
+
+## Head-to-head comparisons
+- [Simply Piano vs Flowkey](https://bestpianoapp.com/simply-piano-vs-flowkey/)
+- [Simply Piano vs Skoove](https://bestpianoapp.com/simply-piano-vs-skoove/)
+- [Simply Piano vs Pianote](https://bestpianoapp.com/simply-piano-vs-pianote/)
+- [Simply Piano vs Playground Sessions](https://bestpianoapp.com/simply-piano-vs-playground-sessions/)
+- [Simply Piano vs Piano Marvel](https://bestpianoapp.com/simply-piano-vs-piano-marvel/)
+- [Simply Piano vs Piano Tree](https://bestpianoapp.com/simply-piano-vs-piano-tree/)
+- [Flowkey vs Skoove](https://bestpianoapp.com/flowkey-vs-skoove/)
+- [Flowkey vs Pianote](https://bestpianoapp.com/flowkey-vs-pianote/)
+- [Flowkey vs Playground Sessions](https://bestpianoapp.com/flowkey-vs-playground-sessions/)
+- [Flowkey vs Yousician](https://bestpianoapp.com/flowkey-vs-yousician/)
+- [Skoove vs Yousician](https://bestpianoapp.com/skoove-vs-yousician/)
+- [Pianote vs Playground Sessions](https://bestpianoapp.com/pianote-vs-playground-sessions/)
+
+## Alternatives
+- [Simply Piano Alternatives](https://bestpianoapp.com/simply-piano-alternatives/)
+- [Flowkey Alternatives](https://bestpianoapp.com/flowkey-alternatives/)
+- [Skoove Alternatives](https://bestpianoapp.com/skoove-alternatives/)
+- [Pianote Alternatives](https://bestpianoapp.com/pianote-alternatives/)
+
+## By person
+- [Best Piano App for Beginners](https://bestpianoapp.com/best-piano-app-for-beginners/)
+- [Best Piano App for Adults](https://bestpianoapp.com/best-piano-app-for-adults/)
+- [Best Piano App for Kids](https://bestpianoapp.com/best-piano-app-for-kids/)
+- [Best Piano App for iPad](https://bestpianoapp.com/best-piano-app-for-ipad/)
+
+## Hardware
+- [Best Keyboards for Piano Apps](https://bestpianoapp.com/best-keyboard-for-piano-apps/)
+- [Best Digital Piano for Beginners](https://bestpianoapp.com/best-digital-piano-for-beginners/)
+
+## Commercial investigation
+- [Is Flowkey Worth It?](https://bestpianoapp.com/is-flowkey-worth-it/): Cost vs. value breakdown.
+
+## About
+- [About BestPianoApp](https://bestpianoapp.com/about/): Who runs this and why it's independent.
+- [Affiliate Disclosure](https://bestpianoapp.com/disclosure/): How the site is funded; rankings are never for sale.

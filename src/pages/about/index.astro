@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+---
+
+<BaseLayout title="About InfoNavigator" description="InfoNavigator publishes data-driven buying guides. Rankings are computed from public ratings — never sponsored, always disclosed.">
+  <div class="wrap">
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'About' }]} />
+    <h1>About InfoNavigator</h1>
+    <p class="lede">Buying advice on the internet has a trust problem. Most "best of" lists are written to sell you whatever pays the highest commission, and you can feel it.</p>
+    <p>InfoNavigator is built on a simple idea: <strong>publish the math.</strong> Every product gets a MetaScore computed from public ratings data, with the source count shown next to the score. Our methodology is public. Our revenue model is disclosed on every page. When we do not know something, we say so.</p>
+    <p>We launch one vertical at a time — 3D printers first — and only expand into categories where we can do the data justice. A thin vertical is worse than no vertical.</p>
+    <p>InfoNavigator is an independent publication. It is reader-supported through affiliate commissions, which never influence rankings. Read the <a href="/disclosure/">full disclosure</a> and <a href="/how-we-rate/">the methodology</a>.</p>
+  </div>
+</BaseLayout>

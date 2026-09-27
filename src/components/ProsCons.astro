@@ -1,0 +1,17 @@
+---
+import type { Product } from '../data/products';
+
+interface Props { product: Product }
+const { product } = Astro.props;
+---
+
+<div class="proscons">
+  <div class="pros">
+    <h3>Pros</h3>
+    <ul>{product.pros.map((p) => <li>{p}</li>)}</ul>
+  </div>
+  <div class="cons">
+    <h3>Cons</h3>
+    <ul>{product.cons.map((c) => <li>{c}</li>)}</ul>
+  </div>
+</div>

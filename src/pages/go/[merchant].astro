@@ -1,0 +1,39 @@
+---
+/** Affiliate click-tracking redirects — excluded from the sitemap. Swapped to real affiliate links when programs approve. */
+export async function getStaticPaths() {
+  return [
+    { params: { merchant: 'bambu-lab' } },
+    { params: { merchant: 'creality' } },
+    { params: { merchant: 'anycubic' } },
+    { params: { merchant: 'elegoo' } },
+    { params: { merchant: 'prusa' } },
+    { params: { merchant: 'snapmaker' } },
+    { params: { merchant: 'amazon' } },
+  ];
+}
+
+const { merchant } = Astro.params;
+const targets: Record<string, string> = {
+  'bambu-lab': 'https://www.amazon.com/s?k=bambu+lab',
+  'creality': 'https://store.creality.com/',
+  'anycubic': 'https://store.anycubic.com/',
+  'elegoo': 'https://www.elegoo.com/',
+  'prusa': 'https://www.prusa3d.com/',
+  'snapmaker': 'https://us.snapmaker.com/',
+  'amazon': 'https://www.amazon.com/',
+};
+const target = targets[merchant ?? ''] ?? 'https://www.amazon.com/';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta http-equiv="refresh" content={`0;url=${target}`} />
+    <title>Redirecting…</title>
+  </head>
+  <body>
+    <p>Redirecting to our retail partner… <a href={target} rel="sponsored nofollow">continue</a></p>
+  </body>
+</html>

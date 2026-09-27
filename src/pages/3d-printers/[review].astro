@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import MetaScoreBadge from '../../components/MetaScoreBadge.astro';
+import ProsCons from '../../components/ProsCons.astro';
+import VerdictBox from '../../components/VerdictBox.astro';
+import CTA from '../../components/CTA.astro';
+import DisclosureBlock from '../../components/DisclosureBlock.astro';
+import LastVerified from '../../components/LastVerified.astro';
+import FAQ from '../../components/FAQ.astro';
+import { PRINTERS, rankedPrinters, type Printer } from '../../data/printers';
+import { priceLine, reviewUrl } from '../../lib/format';
+
+export async function getStaticPaths() {
+  return PRINTERS.map((p) => ({ params: { review: `${p.slug}-review` }, props: { printer: p } }));
+}
+
+interface Props { printer: Printer }
+const { printer: p } = Astro.props;
+const rank = rankedPrinters.findIndex((r) => r.slug === p.slug) + 1;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Review',
+  itemReviewed: { '@type': 'Product', name: p.name, brand: { '@type': 'Brand', name: p.maker } },
+  reviewRating: { '@type': 'Rating', ratingValue: p.metaScore, bestRating: 10 },
+  author: { '@type': 'Organization', name: 'InfoNavigator' },
+};
+---
+
+<BaseLayout
+  title={`${p.name} Review (2026): MetaScore, Pros & Cons, Verdict`}
+  description={`${p.name} review: MetaScore ${p.metaScore.toFixed(1)}/10 from ${p.metaScoreSources} sources. ${p.tagline} Honest pros, cons, and verdict.`}
+  schema={schema}
+>
+  <div class="wrap">
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: '3D Printers', href: '/3d-printers/' }, { label: p.name }]} />
+    <p class="hero-eyebrow">Ranked #{rank} of {PRINTERS.length} 3D printers</p>
+    <h1>{p.name} Review (2026)</h1>
+    <p class="lede">{p.tagline}</p>
+
+    <div class="review-meta">
+      <MetaScoreBadge product={p} />
+      <p class="pc-price"><strong>{priceLine(p)}</strong></p>
+      <CTA product={p} cls="btn-lg" />
+    </div>
+    <LastVerified />
+
+    {p.overview.map((para) => <p>{para}</p>)}
+
+    <h2>Pros & cons</h2>
+    <ProsCons product={p} />
+
+    <h2>Key specs</h2>
+    <dl class="specs">
+      {p.specs.map((s) => (<div><dt>{s.label}</dt><dd>{s.value}</dd></div>))}
+    </dl>
+
+    <h2>Who it is for</h2>
+    <div class="proscons">
+      <div class="pros">
+        <h3>Best for</h3>
+        <ul>{p.bestFor.map((b) => <li>{b}</li>)}</ul>
+      </div>
+      <div class="cons">
+        <h3>Not for</h3>
+        <ul>{p.notFor.map((b) => <li>{b}</li>)}</ul>
+      </div>
+    </div>
+
+    <VerdictBox>{p.verdict}</VerdictBox>
+
+    <div class="review-cta">
+      <CTA product={p} label={`Check the current price — ${p.name}`} cls="btn-gold btn-lg" />
+    </div>
+
+    <FAQ items={p.faqs} />
+
+    <section>
+      <h2>Compare it</h2>
+      <ul class="linklist">
+        {rankedPrinters.filter((r) => r.slug !== p.slug).slice(0, 4).map((r) => (
+          <li><a href={`/3d-printers/${p.slug}-vs-${r.slug}/`}>{p.name} vs {r.name}</a></li>
+        ))}
+        <li><a href="/3d-printers/">Back to the full 3D printer ranking</a></li>
+      </ul>
+    </section>
+
+    <DisclosureBlock />
+  </div>
+</BaseLayout>

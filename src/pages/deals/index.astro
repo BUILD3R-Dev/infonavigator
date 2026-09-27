@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import DisclosureBlock from '../../components/DisclosureBlock.astro';
+import LastVerified from '../../components/LastVerified.astro';
+---
+
+<BaseLayout title="Deals — Price Drops Worth Knowing About (2026)" description="Current 3D printer deals and price drops, verified monthly. Only discounts on products we'd recommend anyway.">
+  <div class="wrap">
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Deals' }]} />
+    <h1>Deals</h1>
+    <p class="lede">Price drops on products we would recommend anyway. We track street prices monthly — a "deal" here means the price actually moved, not a fake MSRP discount.</p>
+
+    <div class="card">
+      <h3>How this page works</h3>
+      <p>Every month we re-check street prices across our ranked products. When a product drops meaningfully below its verified price, it lands here with the before/after numbers and the date. No coupon-code theater.</p>
+      <p class="muted">First price check runs with launch. Check back soon — or start with the <a href="/3d-printers/">3D printer rankings</a>.</p>
+    </div>
+
+    <LastVerified />
+    <DisclosureBlock />
+  </div>
+</BaseLayout>

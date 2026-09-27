@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import DisclosureBlock from '../components/DisclosureBlock.astro';
+import LastVerified from '../components/LastVerified.astro';
+import FAQ, { type FaqItem } from '../components/FAQ.astro';
+import { SITE, VERTICALS } from '../data/site';
+
+const faqs: FaqItem[] = [
+  {
+    q: 'How are your rankings calculated?',
+    a: 'Every product gets a MetaScore: a 0–10 score computed from public ratings data across retailers, review platforms, and enthusiast communities. We publish the methodology and the source count on every score.',
+  },
+  {
+    q: 'Do brands pay for placement?',
+    a: 'No. Rankings are computed from public data and are never for sale. We may earn a commission when you buy through our links — that is disclosed on every page and in our affiliate disclosure.',
+  },
+  {
+    q: 'Which categories do you cover?',
+    a: 'We launch one vertical at a time and only expand when the data supports it. 3D printers is our first live vertical. Robot vacuums is next under evaluation.',
+  },
+  {
+    q: 'How often is the data refreshed?',
+    a: 'Prices and ratings are re-verified monthly at minimum, and we re-score whenever a new flagship launches or prices move materially.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE.name,
+  url: SITE.url,
+  description: SITE.tagline,
+};
+---
+
+<BaseLayout title={`${SITE.name} — Data-Driven Buying Guides (2026)`} description={SITE.tagline} schema={schema} ogType="website">
+  <section class="hero">
+    <div class="wrap-wide">
+      <p class="hero-eyebrow">Independent · Data-driven · Reader-supported</p>
+      <h1>Buying Guides, Ranked by Data — Not by Sponsors</h1>
+      <p class="hero-sub">
+        {SITE.tagline} Every MetaScore is computed from public ratings and published with its sources. Rankings are never for sale.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-gold btn-lg" href="/3d-printers/">Best 3D printers of 2026</a>
+        <a class="btn btn-outline-light btn-lg" href="/how-we-rate/">How we rate</a>
+      </div>
+      <ul class="trust-row">
+        <li>8 printers scored</li>
+        <li>Prices verified Sept 2026</li>
+        <li>Zero sponsored rankings</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section>
+      <h2>Browse by category</h2>
+      <div class="grid2">
+        {VERTICALS.map((v) => (
+          <div class="card">
+            <h3>{v.label}</h3>
+            <p>{v.intro}</p>
+            {v.status === 'live' ? (
+              <a class="btn" href={v.url}>Explore {v.productCount} ranked products</a>
+            ) : (
+              <p class="muted">Coming soon — under evaluation.</p>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <h2>Why trust these rankings</h2>
+      <ul class="checklist">
+        <li><strong>MetaScore methodology:</strong> every score is a weighted composite of public ratings, normalized and published with its source count.</li>
+        <li><strong>Monthly verification:</strong> prices, specs, and ratings are re-checked every month — and re-scored when flagships launch.</li>
+        <li><strong>No pay-to-rank:</strong> affiliate commissions never influence order. Our <a href="/disclosure/">disclosure</a> spells out exactly how we make money.</li>
+        <li><strong>Real trade-offs:</strong> every review lists genuine cons, not marketing copy. If a product is wrong for you, we say so.</li>
+      </ul>
+      <LastVerified />
+    </section>
+
+    <FAQ items={faqs} />
+
+    <DisclosureBlock />
+  </div>
+</BaseLayout>

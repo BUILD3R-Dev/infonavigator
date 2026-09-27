@@ -1,0 +1,45 @@
+---
+import type { Product } from '../data/products';
+import { priceLine, reviewUrl } from '../lib/format';
+
+interface Props {
+  products: Product[];
+  caption?: string;
+}
+const { products: list, caption = 'Side-by-side comparison' } = Astro.props;
+
+// Union of all spec labels across the compared products, in first-seen order
+const labels: string[] = [];
+for (const p of list) for (const s of p.specs) if (!labels.includes(s.label)) labels.push(s.label);
+const specOf = (p: Product, label: string) => p.specs.find((s) => s.label === label)?.value ?? '—';
+---
+
+<div class={`cmp-scroll${list.length > 3 ? ' cmp-scroll--tall' : ''}`}>
+<table class="cmp cmp--wide">
+  <caption>{caption}</caption>
+  <thead>
+    <tr>
+      <th scope="col">Feature</th>
+      {list.map((p) => (
+        <th scope="col"><a href={reviewUrl(p)}>{p.name}</a></th>
+      ))}
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>MetaScore</strong></td>
+      {list.map((p) => <td><strong>{p.metaScore.toFixed(1)}</strong> / 10 ({p.metaScoreSources} {p.metaScoreSources === 1 ? 'source' : 'sources'}){p.provisionalScore && <em> — provisional</em>}</td>)}
+    </tr>
+    <tr>
+      <td><strong>Price</strong></td>
+      {list.map((p) => (<td><strong>{priceLine(p)}</strong></td>))}
+    </tr>
+    {labels.map((label) => (
+      <tr>
+        <td><strong>{label}</strong></td>
+        {list.map((p) => (<td>{specOf(p, label)}</td>))}
+      </tr>
+    ))}
+  </tbody>
+</table>
+</div>

@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import ProductCard from '../../../components/ProductCard.astro';
+import DisclosureBlock from '../../../components/DisclosureBlock.astro';
+import LastVerified from '../../../components/LastVerified.astro';
+import FAQ, { type FaqItem } from '../../../components/FAQ.astro';
+import { printerBySlug } from '../../../data/printers';
+
+const picks = [
+  { slug: 'bambu-lab-a1-combo', why: 'Our #1 beginner pick: full-auto calibration, zero tinkering, quiet enough for a desk. The printer that made "just works" true.' },
+  { slug: 'elegoo-centauri-carbon-2', why: 'Enclosed, quiet (~45 dB), and beginner-friendly with four-color printing included — the safe enclosed choice.' },
+  { slug: 'elegoo-centauri-carbon', why: 'Maximum printer per dollar for single-color printing. Nearly zero assembly, dependable auto-leveling, often $299 on sale.' },
+  { slug: 'anycubic-kobra-3', why: 'The budget pick for confident beginners only — great value, but expect occasional troubleshooting. Nervous first-timers should pay the A1 premium.' },
+].map(({ slug, why }) => ({ p: printerBySlug(slug), why }));
+
+const faqs: FaqItem[] = [
+  { q: 'Do I need any experience to start 3D printing?', a: 'No. Modern auto-calibrating printers like the A1 Combo handle bed leveling, vibration compensation, and flow calibration themselves. If you can use a smartphone app, you can print.' },
+  { q: 'What filament should a beginner start with?', a: 'PLA. It prints at low temperatures, does not warp, needs no enclosure, and comes in every color. Move to PETG once you are comfortable; leave ABS/ASA until you have an enclosed printer.' },
+  { q: 'How much does it cost to run a 3D printer?', a: 'A 1 kg spool of PLA costs $15–25 and prints dozens of typical models. Electricity is negligible — a printer draws roughly as much as a desktop PC while running.' },
+];
+---
+
+<BaseLayout title="Best 3D Printer for Beginners (2026): Start Here" description="The best beginner 3D printers ranked by data: auto-calibration, easy setup, and real owner feedback. Start with the right machine.">
+  <div class="wrap">
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: '3D Printers', href: '/3d-printers/' }, { label: 'For beginners' }]} />
+    <h1>Best 3D Printer for Beginners (2026)</h1>
+    <p class="lede">Your first printer should teach you 3D printing, not 3D printer repair. These are the machines with auto-calibration, guided setup, and the highest owner satisfaction — ranked by data.</p>
+    <LastVerified />
+
+    {picks.map(({ p, why }, i) => (
+      <section>
+        <h2>#{i + 1}: {p.name}</h2>
+        <p>{why}</p>
+        <ProductCard product={p} />
+      </section>
+    ))}
+
+    <section>
+      <h2>What beginners should prioritize</h2>
+      <ul class="checklist">
+        <li><strong>Auto-calibration</strong> — bed leveling, vibration compensation, and flow calibration without manual knobs.</li>
+        <li><strong>Enclosure (eventually)</strong> — not required for PLA, but it future-proofs you for ABS/ASA.</li>
+        <li><strong>Community size</strong> — more owners means more profiles, more tutorials, more answers.</li>
+        <li><strong>Noise</strong> — if it lives in your living space, ≤50 dB matters more than you think.</li>
+      </ul>
+    </section>
+
+    <FAQ items={faqs} />
+    <DisclosureBlock />
+  </div>
+</BaseLayout>

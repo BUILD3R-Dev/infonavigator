@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import ProductCard from '../../../components/ProductCard.astro';
+import DisclosureBlock from '../../../components/DisclosureBlock.astro';
+import LastVerified from '../../../components/LastVerified.astro';
+import FAQ, { type FaqItem } from '../../../components/FAQ.astro';
+import { printerBySlug } from '../../../data/printers';
+
+const picks = [
+  { slug: 'snapmaker-u1', why: 'The only toolchanger under $1,000: ~5-second swaps, virtually zero purge waste, multicolor up to 5× faster. The technology everything else is measured against.' },
+  { slug: 'bambu-lab-p2s', why: 'The mature choice: AMS 2 Pro with active filament drying, the best software ecosystem, and enclosed printing. Purge waste is the tax.' },
+  { slug: 'bambu-lab-a1-combo', why: 'The cheapest easy multicolor at $400. Open-frame and PLA-focused, but nothing touches it for value.' },
+  { slug: 'elegoo-centauri-carbon-2', why: 'Enclosed four-color printing for $369 on sale. Rougher edges than Bambu, but the price is unmatched.' },
+  { slug: 'creality-k2-pro', why: 'Up to 16 colors via CFS — on paper the most. In practice, CFS reliability complaints make this a buy-it-for-the-printer pick, not a multicolor pick.' },
+].map(({ slug, why }) => ({ p: printerBySlug(slug), why }));
+
+const faqs: FaqItem[] = [
+  { q: 'What is purge waste and why does it matter?', a: 'Single-nozzle multicolor systems (AMS, CFS, ACE Pro, CANVAS) purge filament between color changes to avoid color bleed. On color-heavy prints, waste can exceed the model\u2019s weight. Toolchangers like the Snapmaker U1 swap whole toolheads instead, producing almost no waste.' },
+  { q: 'How many colors do I actually need?', a: 'Four covers the vast majority of multicolor models. Systems offering 8–16 colors are for dedicated multicolor hobbyists — and multiply the purge waste.' },
+  { q: 'Can multicolor systems print TPU?', a: 'Generally no — flexible filament does not survive the long filament paths of AMS/CFS-style units. The Snapmaker U1\u2019s direct-drive toolheads handle TPU better.' },
+];
+---
+
+<BaseLayout title="Best Multicolor 3D Printer (2026): Every System Compared" description="The best multicolor 3D printers ranked by data: toolchanging vs purge systems, waste compared honestly, and which color system to buy.">
+  <div class="wrap">
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: '3D Printers', href: '/3d-printers/' }, { label: 'Multicolor' }]} />
+    <h1>Best Multicolor 3D Printer (2026)</h1>
+    <p class="lede">Multicolor 3D printing has a dirty secret: most systems waste more filament than they print. Here is every serious multicolor printer ranked — including the one technology that fixes the waste problem.</p>
+    <LastVerified />
+
+    {picks.map(({ p, why }, i) => (
+      <section>
+        <h2>#{i + 1}: {p.name}</h2>
+        <p>{why}</p>
+        <ProductCard product={p} />
+      </section>
+    ))}
+
+    <section>
+      <h2>Purge systems vs toolchanging</h2>
+      <ul class="checklist">
+        <li><strong>Purge systems</strong> (AMS, CFS, ACE Pro, CANVAS): one nozzle, filament purged between colors. Simple, mature — and wasteful on color-heavy prints.</li>
+        <li><strong>Toolchanging</strong> (Snapmaker U1): separate toolhead per material, ~5 s swaps, near-zero waste. Faster, cleaner — newer ecosystem, higher price.</li>
+      </ul>
+      <p>If you print multicolor weekly, the toolchanger pays for itself in filament and time. If it is occasional, a purge system is fine — just enable purge-to-infill and purge objects in your slicer.</p>
+    </section>
+
+    <FAQ items={faqs} />
+    <DisclosureBlock />
+  </div>
+</BaseLayout>

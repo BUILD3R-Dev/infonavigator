@@ -1,0 +1,14 @@
+---
+import type { Product } from '../data/products';
+
+interface Props {
+  product: Product;
+  label?: string;
+  ghost?: boolean;
+  cls?: string;
+}
+const { product, label, ghost = false, cls = '' } = Astro.props;
+const text = label ?? `Check price — ${product.name}`;
+---
+
+<a class={`btn${ghost ? ' btn-ghost' : ''}${cls ? ` ${cls}` : ''}`} href={product.affiliate.link} rel="sponsored nofollow">{text}</a>

@@ -227,7 +227,7 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
       }
       .metascore .num { font-size: 1.35rem; letter-spacing: -0.02em; color: var(--ink); }
       .metascore .bar { width: 120px; height: 10px; background: #dcdce1; border-radius: 999px; overflow: hidden; flex: none; }
-      .metascore .fill { height: 100%; border-radius: 999px; }
+      .metascore .fill { display: block; height: 100%; border-radius: 999px; }
       .fill.ms-high { background: linear-gradient(90deg, var(--good), #35a56a); }
       .fill.ms-mid { background: linear-gradient(90deg, var(--accent), #e3ac2c); }
       .fill.ms-low { background: #a2a2ab; }

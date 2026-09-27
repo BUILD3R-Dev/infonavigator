@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page not found — InfoNavigator"
+  description="The page you were looking for does not exist."
+  noindex={true}
+>
+  <div class="wrap" style="text-align:center; padding: 4rem 0;">
+    <h1>That page doesn't exist.</h1>
+    <p class="lede">The link may be old, or the address was typed wrong.</p>
+    <p>
+      <a href="/">Back to the homepage</a> &nbsp;·&nbsp;
+      <a href="/3d-printers/">Browse 3D printer guides</a>
+    </p>
+  </div>
+</BaseLayout>

@@ -8,7 +8,7 @@ import CTA from '../../components/CTA.astro';
 import DisclosureBlock from '../../components/DisclosureBlock.astro';
 import LastVerified from '../../components/LastVerified.astro';
 import FAQ from '../../components/FAQ.astro';
-import { PRINTERS, rankedPrinters, type Printer } from '../../data/printers';
+import { PRINTERS, rankedPrinters, VS_PAIRS, type Printer } from '../../data/printers';
 import { priceLine, reviewUrl } from '../../lib/format';
 
 export async function getStaticPaths() {
@@ -82,8 +82,8 @@ const schema = {
     <section>
       <h2>Compare it</h2>
       <ul class="linklist">
-        {rankedPrinters.filter((r) => r.slug !== p.slug).slice(0, 4).map((r) => (
-          <li><a href={`/3d-printers/${p.slug}-vs-${r.slug}/`}>{p.name} vs {r.name}</a></li>
+        {VS_PAIRS.filter((pair) => pair.a === p.slug || pair.b === p.slug).map((pair) => (
+          <li><a href={`/3d-printers/${pair.a}-vs-${pair.b}/`}>{pair.title}</a></li>
         ))}
         <li><a href="/3d-printers/">Back to the full 3D printer ranking</a></li>
       </ul>

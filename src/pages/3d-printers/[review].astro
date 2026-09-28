@@ -35,16 +35,19 @@ const schema = {
 >
   <div class="wrap">
     <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: '3D Printers', href: '/3d-printers/' }, { label: p.name }]} />
-    <p class="hero-eyebrow">Ranked #{rank} of {PRINTERS.length} 3D printers</p>
-    <h1>{p.name} Review (2026)</h1>
-    <p class="lede">{p.tagline}</p>
-
-    <div class="review-meta">
-      <MetaScoreBadge product={p} />
-      <p class="pc-price"><strong>{priceLine(p)}</strong></p>
-      <CTA product={p} cls="btn-lg" />
+    <div class="page-head">
+      <div>
+        <p class="hero-eyebrow">Ranked #{rank} of {PRINTERS.length} 3D printers</p>
+        <h1>{p.name} Review (2026)</h1>
+        <p class="lede">{p.tagline}</p>
+      </div>
+      <div class="review-meta">
+        <MetaScoreBadge product={p} />
+        <p class="pc-price"><strong>{priceLine(p)}</strong></p>
+        <CTA product={p} cls="btn-gold btn-lg" />
+      </div>
+      <LastVerified />
     </div>
-    <LastVerified />
 
     {p.overview.map((para) => <p>{para}</p>)}
 

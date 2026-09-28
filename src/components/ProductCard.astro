@@ -6,21 +6,24 @@ import { priceLine, reviewUrl } from '../lib/format';
 
 interface Props { product: Product; rank?: number }
 const { product, rank } = Astro.props;
+const cls = ['product-card', rank !== undefined && 'has-rank', rank === 1 && 'is-top'].filter(Boolean).join(' ');
 ---
 
-<article class="card product-card">
-  <div class="pc-head">
-    {rank !== undefined && <span class="rank">#{rank}</span>}
-    <div>
-      <h3><a href={reviewUrl(product)}>{product.name}</a></h3>
-      <p class="card-tagline">{product.tagline}</p>
-    </div>
+<article class={cls}>
+  {rank !== undefined && <div class="pc-rank"><span>#</span>{rank}</div>}
+  <div class="pc-main">
+    <h3><a href={reviewUrl(product)}>{product.name}</a></h3>
+    <p class="card-tagline">{product.tagline}</p>
+    <ul class="chips pc-bestfor" aria-label="Best for">
+      {product.bestFor.map((b) => <li>{b}</li>)}
+    </ul>
   </div>
-  <MetaScoreBadge product={product} />
-  <p class="pc-price"><strong>{priceLine(product)}</strong></p>
-  <p class="pc-bestfor">{product.bestFor.join(' · ')}</p>
-  <div class="pc-actions">
-    <CTA product={product} />
-    <a class="btn btn-ghost" href={reviewUrl(product)}>Full review</a>
+  <div class="pc-side">
+    <MetaScoreBadge product={product} />
+    <p class="pc-price"><strong>{priceLine(product)}</strong></p>
+    <div class="pc-actions">
+      <CTA product={product} />
+      <a class="btn btn-ghost" href={reviewUrl(product)}>Full review</a>
+    </div>
   </div>
 </article>

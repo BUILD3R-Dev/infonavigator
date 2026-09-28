@@ -3,7 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import DisclosureBlock from '../components/DisclosureBlock.astro';
 import LastVerified from '../components/LastVerified.astro';
 import FAQ, { type FaqItem } from '../components/FAQ.astro';
+import MetaScoreBadge from '../components/MetaScoreBadge.astro';
 import { SITE, VERTICALS } from '../data/site';
+import { rankedPrinters } from '../data/printers';
+import { money, reviewUrl } from '../lib/format';
+
+const top3 = rankedPrinters.slice(0, 3);
 
 const faqs: FaqItem[] = [
   {
@@ -35,21 +40,43 @@ const schema = {
 
 <BaseLayout title={`${SITE.name} — Data-Driven Buying Guides (2026)`} description={SITE.tagline} schema={schema} ogType="website">
   <section class="hero">
-    <div class="wrap-wide">
-      <p class="hero-eyebrow">Independent · Data-driven · Reader-supported</p>
-      <h1>Buying Guides, Ranked by Data — Not by Sponsors</h1>
-      <p class="hero-sub">
-        {SITE.tagline} Every MetaScore is computed from public ratings and published with its sources. Rankings are never for sale.
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-gold btn-lg" href="/3d-printers/">Best 3D printers of 2026</a>
-        <a class="btn btn-outline-light btn-lg" href="/how-we-rate/">How we rate</a>
+    <div class="wrap-wide hero-grid">
+      <div>
+        <ul class="hero-tags" aria-label="About InfoNavigator">
+          <li>Independent</li>
+          <li>Data-driven</li>
+          <li>Reader-supported</li>
+        </ul>
+        <h1>Buying guides, ranked by data — not by sponsors</h1>
+        <p class="hero-sub">
+          {SITE.tagline} Every MetaScore is computed from public ratings and published with its sources. Rankings are never for sale.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-gold btn-lg" href="/3d-printers/">Best 3D printers of 2026</a>
+          <a class="btn btn-ghost btn-lg" href="/how-we-rate/">How we rate</a>
+        </div>
+        <ul class="trust-row">
+          <li>8 printers scored</li>
+          <li>Prices verified Sept 2026</li>
+          <li>Zero sponsored rankings</li>
+        </ul>
       </div>
-      <ul class="trust-row">
-        <li>8 printers scored</li>
-        <li>Prices verified Sept 2026</li>
-        <li>Zero sponsored rankings</li>
-      </ul>
+      <aside class="leaderboard" aria-labelledby="lb-title">
+        <h2 id="lb-title">Top-rated 3D printers right now</h2>
+        <p class="lb-note">By MetaScore, out of 10</p>
+        <ol>
+          {top3.map((p, i) => (
+            <li>
+              <span class="lb-rank">{i + 1}</span>
+              <div>
+                <a class="lb-name" href={reviewUrl(p)}>{p.name}</a> <span class="lb-price">from {money(p.price)}</span>
+              </div>
+              <MetaScoreBadge product={p} />
+            </li>
+          ))}
+        </ol>
+        <a class="lb-all" href="/3d-printers/">See all 8 ranked printers</a>
+      </aside>
     </div>
   </section>
 

@@ -7,7 +7,7 @@ export const SITE = {
 
 export const NAV = [
   { label: '3D Printers', href: '/3d-printers/' },
-  { label: 'Best Picks', href: '/3d-printers/best-3d-printer/' },
+  { label: 'Best Picks', href: '/3d-printers/#best-picks' },
   { label: 'Comparisons', href: '/3d-printers/bambu-lab-p2s-vs-creality-k2-pro/' },
   { label: 'Deals', href: '/deals/' },
   { label: 'How We Rate', href: '/how-we-rate/' },

@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /go/
 
-Sitemap: https://infonavigator.org/sitemap.xml
+Sitemap: https://infonavigator.org/sitemap-index.xml

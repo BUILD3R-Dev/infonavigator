@@ -35,15 +35,31 @@ const schema = {
 
 <BaseLayout title={`${SITE.name} — Data-Driven Buying Guides (2026)`} description={SITE.tagline} schema={schema} ogType="website">
   <section class="hero">
-    <div class="wrap-wide">
-      <p class="hero-eyebrow">Independent · Data-driven · Reader-supported</p>
-      <h1>Buying Guides, Ranked by Data — Not by Sponsors</h1>
-      <p class="hero-sub">
-        {SITE.tagline} Every MetaScore is computed from public ratings and published with its sources. Rankings are never for sale.
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-gold btn-lg" href="/3d-printers/">Best 3D printers of 2026</a>
-        <a class="btn btn-outline-light btn-lg" href="/how-we-rate/">How we rate</a>
+    <div class="wrap-wide hero-layout">
+      <div class="hero-copy">
+        <p class="hero-eyebrow">Independent · Data-driven · Reader-supported</p>
+        <h1>Buying Guides, Ranked by Data — Not by Sponsors</h1>
+        <p class="hero-sub">
+          {SITE.tagline} Every MetaScore is computed from public ratings and published with its sources. Rankings are never for sale.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-gold btn-lg" href="/3d-printers/">Best 3D printers of 2026</a>
+          <a class="btn btn-outline-light btn-lg" href="/how-we-rate/">How we rate</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 480 400" fill="none">
+          <circle cx="240" cy="200" r="174" />
+          <circle cx="240" cy="200" r="130" />
+          <path d="M66 200H414M240 26V374M117 77L363 323M117 323L363 77" />
+          <path class="art-plane" d="M240 60L390 145V265L240 350L90 265V145Z" />
+          <path class="art-cube" d="M240 105L345 165V285L240 225L135 285V165Z" />
+          <path class="art-top" d="M240 105L345 165L240 225L135 165Z" />
+          <path class="art-edge" d="M240 225V345M90 145L240 230L390 145" />
+          <circle class="art-dot" cx="240" cy="105" r="6" />
+          <circle class="art-dot" cx="345" cy="285" r="6" />
+          <circle class="art-dot" cx="135" cy="285" r="6" />
+        </svg>
       </div>
       <ul class="trust-row">
         <li>8 printers scored</li>
@@ -53,12 +69,12 @@ const schema = {
     </div>
   </section>
 
-  <div class="wrap">
+  <div class="wrap home-content">
     <section>
       <h2>Browse by category</h2>
       <div class="grid2">
         {VERTICALS.map((v) => (
-          <div class="card">
+          <div class:list={["card", "category-card", { "category-pending": v.status !== "live" }]}>
             <h3>{v.label}</h3>
             <p>{v.intro}</p>
             {v.status === 'live' ? (

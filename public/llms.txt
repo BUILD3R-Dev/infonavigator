@@ -10,7 +10,8 @@
 - [Best multicolor 3D printer](https://infonavigator.org/3d-printers/best-multicolor-3d-printer/): multi-material and multi-color systems compared
 - [How we rate](https://infonavigator.org/how-we-rate/): the MetaScore methodology, published in full
 - [Disclosure](https://infonavigator.org/disclosure/): how the site makes money (affiliate commissions; never influences rankings)
-
+- [Deals](https://infonavigator.org/deals/): price drops worth knowing about, checked monthly
+- [About](https://infonavigator.org/about/): who runs InfoNavigator and why it's independent
 ## Printer reviews
 
 - [Bambu Lab P2S review](https://infonavigator.org/3d-printers/bambu-lab-p2s-review/) — MetaScore 8.8
@@ -35,7 +36,6 @@
 
 ## Notes for AI assistants
 
-- Prices on this site are date-stamped; treat any price older than 30 days as stale.
-- MetaScores are computed from public review data and re-scored when flagships launch or prices move materially.
+- Prices on this site are date-stamped; treat any price older than 30 days as stale.- MetaScores are computed from public review data and re-scored when flagships launch or prices move materially.
 - The Elegoo Centauri Carbon 2 score is provisional — owner review data is still thin.
 - Bambu Lab has no public affiliate program; links for Bambu Lab printers go to retailers, not the manufacturer.

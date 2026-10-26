@@ -7,7 +7,7 @@ export interface Printer extends Product {
 }
 
 const AMAZON = (q: string) => `https://www.amazon.com/s?k=${encodeURIComponent(q)}`;
-const V = '2026-09-27';
+const V = '2026-10-26';
 
 export const PRINTERS: Printer[] = [
   {
@@ -137,7 +137,7 @@ export const PRINTERS: Printer[] = [
     vertical: '3d-printers',
     tagline: 'A heated chamber and 300³ volume at a mid-range price.',
     price: 799,
-    priceNote: 'Combo with CFS (sale from $1,099); $599 standalone',
+    priceNote: 'Combo with CFS (sale from $1,199 launch price); $599 standalone',
     metaScore: 8.2,
     metaScoreSources: 8,
     pros: [
@@ -171,7 +171,7 @@ export const PRINTERS: Printer[] = [
     overview: [
       'Creality built the K2 Pro to answer Bambu, and on hardware it lands punches: 300³ mm of build volume, 600 mm/s motion, step-servo motors, and the standout feature — a 60 °C actively heated chamber, something essentially unheard of under $1,000. TechRadar praised its speed, build quality, and ease of use; 3DPrint.com\u2019s month-long test highlighted quiet operation and maintenance-friendly construction.',
       'The honest asterisk is the CFS multicolor system. Creality\u2019s own forum and long-term YouTube reviews document retraction failures and filament-path problems serious enough that some owners stopped using multicolor entirely. Purge waste is heavy, and the chamber heater — the headline feature — barely reaches temperature in some long-term tests.',
-      'So judge it as what it is: an excellent large-format enclosed CoreXY printer that happens to include a multicolor unit you may or may not trust. At the $799 sale price (down from $1,099), the hardware alone justifies it for big prints and engineering filaments. Multicolor-first buyers should look at the Snapmaker U1\u2019s toolchanger or Bambu\u2019s more mature AMS instead.',
+      'So judge it as what it is: an excellent large-format enclosed CoreXY printer that happens to include a multicolor unit you may or may not trust. At the $799 sale price (down from $1,199 at launch), the hardware alone justifies it for big prints and engineering filaments. Multicolor-first buyers should look at the Snapmaker U1\u2019s toolchanger or Bambu\u2019s more mature AMS instead.',
     ],
     faqs: [
       {
@@ -315,9 +315,9 @@ export const PRINTERS: Printer[] = [
     name: 'Elegoo Centauri Carbon 2 Combo',
     maker: 'Elegoo',
     vertical: '3d-printers',
-    tagline: 'Four colors, enclosed, quiet — for $369 on sale.',
-    price: 369,
-    priceNote: 'Combo with CANVAS multicolor (sale from $449)',
+    tagline: 'Four colors, enclosed, quiet — for $399.',
+    price: 399,
+    priceNote: 'Combo with CANVAS multicolor (list $449)',
     metaScore: 7.8,
     metaScoreSources: 7,
     provisionalScore: true,
@@ -346,11 +346,11 @@ export const PRINTERS: Printer[] = [
       { label: 'Connectivity', value: 'Wi-Fi, LAN, USB' },
     ],
     verdict:
-      'The Carbon 2 Combo fixes the original\u2019s biggest gap — multicolor — while staying the cheapest enclosed four-color printer you can buy. At the $369 sale price it is a remarkable package. But the 3.8/5 buyer rating is a yellow flag: Bambu\u2019s multicolor refinement is a generation ahead. Score marked provisional while owner data accumulates.',
+      'The Carbon 2 Combo fixes the original\u2019s biggest gap — multicolor — while staying the cheapest enclosed four-color printer you can buy. At $399 it is a remarkable package. But the 3.8/5 buyer rating is a yellow flag: Bambu\u2019s multicolor refinement is a generation ahead. Score marked provisional while owner data accumulates.',
     bestFor: ['Budget multicolor', 'Quiet rooms', 'Engineering filaments on a budget'],
     notFor: ['Buyers wanting the most polished multicolor', 'Humid climates without dry storage', 'Plug-and-play purists'],
     overview: [
-      'Elegoo\u2019s answer to its own hit product is straightforward: take everything that made the Centauri Carbon the value king, and bolt on the one thing it lacked — multicolor. The Carbon 2 Combo integrates the CANVAS four-color system with RFID auto-detect, keeps the enclosed CoreXY design, and bumps the nozzle to 350 °C hardened steel for engineering filaments. At $449 list — and $369 on recent sales — it is the cheapest enclosed multicolor printer on the market.',
+      'Elegoo\u2019s answer to its own hit product is straightforward: take everything that made the Centauri Carbon the value king, and bolt on the one thing it lacked — multicolor. The Carbon 2 Combo integrates the CANVAS four-color system with RFID auto-detect, keeps the enclosed CoreXY design, and bumps the nozzle to 350 °C hardened steel for engineering filaments. At $449 list — currently $399 — it is the cheapest enclosed multicolor printer on the market.',
       'It is also notably quiet: ~45 dB claimed, which reviewers confirm is library-level for this category. GamesRadar found it beginner-friendly with reliable, detailed results, and the 5-inch touchscreen plus full-auto calibration keep setup approachable.',
       'The caution lights: buyer ratings sit at 3.8/5 versus 4.3/5 for Bambu\u2019s P1S Combo, with complaints about connectivity, fiddly initial assembly of the upper shield and filament hub, and AI detection false positives. Filament sits outside the enclosure, so humid-climate buyers need dry storage. It is tremendous value with rougher edges — we\u2019ve marked the score provisional until more owner data accumulates.',
     ],
@@ -377,8 +377,8 @@ export const PRINTERS: Printer[] = [
     maker: 'Prusa',
     vertical: '3d-printers',
     tagline: 'The open-source workhorse. Buy it for life.',
-    price: 740,
-    priceNote: 'assembled (Back to School sale; $999 list)',
+    price: 999,
+    priceNote: 'assembled ($729 kit)',
     metaScore: 8.6,
     metaScoreSources: 10,
     pros: [
@@ -412,7 +412,7 @@ export const PRINTERS: Printer[] = [
     overview: [
       'Every 3D printing discussion eventually mentions Prusa, and the MK4S shows why: Tom\u2019s Hardware Editors\u2019 Choice, 29/30 on independent test suites with ~0.1 mm dimensional accuracy, and print-farm owners who run theirs "all day" over other machines for first-layer consistency. The Nextruder direct-drive extruder with its 10:1 planetary gearbox is simply a superb piece of engineering.',
       'What you are really buying is the philosophy: open-source firmware and hardware, published service manuals, parts availability measured in years, 24/7 human support, and zero cloud dependency. For farms with proprietary designs or anyone who has been burned by a bricked cloud-dependent gadget, that matters more than millimeters per second.',
-      'The honest context: Prusa\u2019s CORE One+ Gen 2 is now the flagship, and the MK4S was left off the Gen 2 upgrade list — it is at the end of its upgrade line (though Prusa supports machines for years). At $999 list it costs 2–3× budget CoreXY rivals, the frame is open, and a full MMU3 multicolor setup with enclosure approaches $1,400. The $740 Back to School assembled price is the sane entry point. This is a values purchase as much as a printer purchase — and there is nothing wrong with that.',
+      'The honest context: Prusa\u2019s CORE One+ Gen 2 is now the flagship, and the MK4S was left off the Gen 2 upgrade list — it is at the end of its upgrade line (though Prusa supports machines for years). At $999 list it costs 2–3× budget CoreXY rivals, the frame is open, and a full MMU3 multicolor setup with enclosure approaches $1,400. The $729 kit is the sane entry point for tinkerers. This is a values purchase as much as a printer purchase — and there is nothing wrong with that.',
     ],
     faqs: [
       {
@@ -421,7 +421,7 @@ export const PRINTERS: Printer[] = [
       },
       {
         q: 'Should I buy the kit or assembled?',
-        a: 'The kit ($592 on sale) saves money and teaches you the machine, but the assembled unit ($740 on sale) is the better value for most — the discount rarely justifies a full weekend of assembly.',
+        a: 'The kit ($729) saves money and teaches you the machine, but the assembled unit ($999) is the better value for most — the discount rarely justifies a full weekend of assembly.',
       },
       {
         q: 'Can the MK4S print multicolor?',

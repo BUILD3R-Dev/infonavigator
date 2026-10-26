@@ -33,4 +33,4 @@ export interface Product {
   lastVerified: string; // YYYY-MM-DD
 }
 
-export const LAST_VERIFIED_LABEL = 'September 2026';
+export const LAST_VERIFIED_LABEL = 'October 2026';

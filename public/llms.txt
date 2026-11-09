@@ -34,6 +34,8 @@
 - [Snapmaker U1 vs Bambu Lab P2S](https://infonavigator.org/3d-printers/snapmaker-u1-vs-bambu-lab-p2s/)
 - [Bambu Lab A1 Combo vs Elegoo Centauri Carbon](https://infonavigator.org/3d-printers/bambu-lab-a1-combo-vs-elegoo-centauri-carbon/)
 - [Snapmaker U1 vs Creality K2 Pro](https://infonavigator.org/3d-printers/snapmaker-u1-vs-creality-k2-pro/)
+- [Prusa MK4S vs Snapmaker U1](https://infonavigator.org/3d-printers/prusa-mk4s-vs-snapmaker-u1/)
+- [Bambu Lab A1 Combo vs Creality K2 Pro](https://infonavigator.org/3d-printers/bambu-lab-a1-combo-vs-creality-k2-pro/)
 
 ## Notes for AI assistants
 

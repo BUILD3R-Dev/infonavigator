@@ -572,4 +572,20 @@ export const VS_PAIRS: VsPair[] = [
     verdict:
       'For multicolor, the U1\u2019s toolchanger obsoletes the K2 Pro\u2019s purge-hungry CFS. For large single-color engineering prints, the K2 Pro\u2019s 300³ volume and heated chamber win. They barely compete — buy for your actual use case.',
   },
+  {
+    a: 'prusa-mk4s',
+    b: 'snapmaker-u1',
+    title: 'Prusa MK4S vs Snapmaker U1',
+    angle: 'Open-source classic vs toolchanging newcomer — the ownership question against the multicolor question.',
+    verdict:
+      'Buy the MK4S if you want a printer you will still be repairing and upgrading in ten years — open-source, no cloud, 24/7 support, and reference-level quality at $999 assembled ($729 kit). Buy the U1 if multicolor is the job — its toolchanger finishes multicolor prints up to 5× faster with near-zero waste at $849. The MK4S is the ownership pick; the U1 is the capability pick.',
+  },
+  {
+    a: 'bambu-lab-a1-combo',
+    b: 'creality-k2-pro',
+    title: 'Bambu Lab A1 Combo vs Creality K2 Pro',
+    angle: 'The best beginner value in 3D printing vs the big heated-chamber flagship — how much printer do you actually need?',
+    verdict:
+      'Get the A1 Combo if you print PLA/PETG — at $400 it is the highest-rated printer we track (MetaScore 9.0), whisper-quiet, and multicolor just works. Step up to the K2 Pro at $799 if you print engineering filaments: the 300³ volume and 60 °C actively heated chamber are capabilities the A1 cannot match. For most buyers the A1 Combo is the answer; the K2 Pro is for the jobs that need the chamber.',
+  },
 ];

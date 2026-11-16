@@ -588,4 +588,20 @@ export const VS_PAIRS: VsPair[] = [
     verdict:
       'Get the A1 Combo if you print PLA/PETG — at $400 it is the highest-rated printer we track (MetaScore 9.0), whisper-quiet, and multicolor just works. Step up to the K2 Pro at $799 if you print engineering filaments: the 300³ volume and 60 °C actively heated chamber are capabilities the A1 cannot match. For most buyers the A1 Combo is the answer; the K2 Pro is for the jobs that need the chamber.',
   },
+  {
+    a: 'bambu-lab-a1-combo',
+    b: 'snapmaker-u1',
+    title: 'Bambu Lab A1 Combo vs Snapmaker U1',
+    angle: 'The best beginner value in 3D printing vs the toolchanging multicolor flagship — how much multicolor do you actually need?',
+    verdict:
+      'Buy the A1 Combo if you print PLA/PETG and want multicolor that just works — at $400 it is the highest-rated printer we track (MetaScore 9.0), whisper-quiet, and the easiest first printer you can buy. Buy the U1 if multicolor is the job: its toolchanger finishes multicolor prints up to 5× faster with near-zero waste. The $449 gap buys capability and speed, not polish — the U1\u2019s software is still half-finished next to Bambu\u2019s, and its enclosure costs another $149.',
+  },
+  {
+    a: 'elegoo-centauri-carbon-2',
+    b: 'snapmaker-u1',
+    title: 'Elegoo Centauri Carbon 2 vs Snapmaker U1',
+    angle: 'The cheapest enclosed multicolor printer vs the toolchanging flagship — budget enclosure against new technology.',
+    verdict:
+      'Buy the Carbon 2 Combo if $399 is the budget and you want enclosed, quiet, four-color printing today — it is less than half the U1\u2019s price and handles engineering filaments at 350 °C. Buy the U1 if you print multicolor often enough that purge waste and print time matter: the toolchanger finishes multicolor up to 5× faster with near-zero waste. The Carbon 2\u2019s 3.8/5 buyer rating is the yellow flag; the U1\u2019s $149 enclosure and half-finished software are its own.',
+  },
 ];
